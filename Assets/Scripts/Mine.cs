@@ -16,10 +16,14 @@ public class Mine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D target)
     {
-        if (target.CompareTag("Enemy"))
+        if (target.CompareTag("Enemy") || target.CompareTag("Bullet"))
         {
             target.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
+    }
+    
+    void OnBecameInvisible() {
+        Destroy(gameObject);
     }
 }

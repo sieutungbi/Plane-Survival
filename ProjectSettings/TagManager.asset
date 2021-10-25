@@ -7,6 +7,9 @@ TagManager:
   - Mine
   - Enemy
   - Joystick
+  - MainCanvas
+  - Score
+  - Bullet
   layers:
   - Default
   - TransparentFX

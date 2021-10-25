@@ -8,29 +8,20 @@ using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
-    public GameObject scoreTxtPrefab;
-    public GameObject canvas;
-    public Text scoreTxt;
-
-    private int pointIncreasePerSecond = 10;
-
-    private float _score = 0;
-
     public Action onPlayerDie;
 
-    //public AudioClip gameMusic;
-
+    public AudioClip gameMusic;
+    public AudioClip buttonSFX;
+    public float _score = 0;
+    public bool fireEnable = true;
     private void Start()
     {
-        //AudioManager.Instance.PlayMusic(gameMusic);
-       
+        AudioManager.Instance.PlayMusic(gameMusic);
     }
 
     private void OnEnable()
     {
-        StartCoroutine(StartCountingPoint());
-        canvas = GameObject.FindGameObjectWithTag("MainCanvas");
-        scoreTxt = Instantiate(scoreTxtPrefab, canvas.transform.position, Quaternion.identity).GetComponent<Text>();
+        
     }
 
     private void OnDisable()
@@ -38,29 +29,34 @@ public class GameManager : Singleton<GameManager>
         
     }
 
-    public IEnumerator StartCountingPoint()
+    public void ButtonSFX()
     {
-       
-        while (true)
-        {
-            _score += (pointIncreasePerSecond * Time.deltaTime);
-            print(_score.ToString());
-            scoreTxt.text = $"Score: {(int)_score}";
-            yield return new WaitForSeconds(1f);
-        }
+        AudioManager.Instance.PlaySFX(buttonSFX); 
     }
-    
+
+    public void DelayRestart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void RestartGame(float delay)
     {
-        StartCoroutine(ReloadGame(delay));
-
+        int currentHS = PlayerPrefs.GetInt("HighScore", 0);
+        if (currentHS == 0)
+        {
+            PlayerPrefs.SetInt("HighScore", (int)_score);
+            PlayerPrefs.Save();
+        }
+        else if (currentHS != 0)
+        {
+            if (currentHS >= _score)
+            {
+                PlayerPrefs.SetInt("HighScore", (int)_score);
+                PlayerPrefs.Save();
+            }
+        }
+        //Time.timeScale = 0;
+        fireEnable = false;
+        Invoke(nameof(DelayRestart), delay);
     }
-
-    IEnumerator ReloadGame(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-    
-    
 }

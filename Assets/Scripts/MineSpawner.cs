@@ -26,15 +26,16 @@ public class MineSpawner : MonoBehaviour
     IEnumerator SpawnMines()
     {
         int count = Random.Range(3, 8);
-        
         Vector3 temp = transform.position;
+        AudioManager.Instance.PlaySFX(sfxSpawn, 0.5f);
         
         for (int i = 0; i < count; i++)
         {
             temp.x = Random.Range(minX, maxX);
             Instantiate(minePrefab, temp, Quaternion.identity);
-            AudioManager.Instance.PlaySFX(sfxSpawn);
+            
             yield return null;
         }
+       
     }
 }
