@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public bool spawnRocket, spawnPlane;
 
     public float spawnTime = 3f;
+    public AudioClip sfxSpawn;
     
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,8 @@ public class EnemySpawner : MonoBehaviour
             go = Instantiate(plane, transform.position, Quaternion.identity);
         }
 
-        go.GetComponent<Enemy>().enemySpawner = this;
+        if (go is { }) go.GetComponent<Enemy>().enemySpawner = this;
+        AudioManager.Instance.PlaySFX(sfxSpawn);
     }
 
     public void StartSpawning()

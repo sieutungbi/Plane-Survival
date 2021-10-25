@@ -13,7 +13,8 @@ public class Enemy : MonoBehaviour
 
     public EnemySpawner enemySpawner;
     public GameObject explosion;
-
+    public AudioClip sfxExplosion;
+    
     private void Awake()
     {
         mybody = GetComponent<Rigidbody2D>();
@@ -40,6 +41,7 @@ public class Enemy : MonoBehaviour
         {
             enemySpawner.StartSpawning();
             Instantiate(explosion, transform.position, Quaternion.identity);
+            AudioManager.Instance.PlaySFX(sfxExplosion);
         }
     }
 }

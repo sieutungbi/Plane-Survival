@@ -8,6 +8,7 @@ public class MineSpawner : MonoBehaviour
 
     public float minX = -9.5f, maxX = 9.5f;
     public float spawnInterval = 3.5f;
+    public AudioClip sfxSpawn;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class MineSpawner : MonoBehaviour
         {
             temp.x = Random.Range(minX, maxX);
             Instantiate(minePrefab, temp, Quaternion.identity);
+            AudioManager.Instance.PlaySFX(sfxSpawn);
             yield return null;
         }
     }

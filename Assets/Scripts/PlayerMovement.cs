@@ -12,19 +12,26 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private float vertical;
     public GameObject explosion;
+    public AudioClip sfxExplosion;
+    private FixedJoystick _joystick;
+
+    private void Awake()
+    {
+        _joystick = GameObject.FindWithTag("Joystick").GetComponent<FixedJoystick>();
+    }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+        
+#if UNITY_EDITOR
         horizontal = Input.GetAxisRaw("Horizontal");
+#else
+        horizontal = _joystick.Horizontal;
+#endif
         
         transform.Translate(Vector2.up * speed * Time.deltaTime,Space.Self);
         transform.Rotate(Vector3.forward * -horizontal * rotaionSpeed * Time.deltaTime);
-    }
-
-    void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnTriggerEnter2D(Collider2D target)
@@ -32,7 +39,8 @@ public class PlayerMovement : MonoBehaviour
         if (target.CompareTag("Enemy") || target.CompareTag("Mine"))
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
-            Invoke("RestartGame", 2f);
+            AudioManager.Instance.PlaySFX(sfxExplosion);
+            GameManager.Instance.RestartGame(2f);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
