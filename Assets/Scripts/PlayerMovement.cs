@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 3f;
-    public float rotaionSpeed = 200f;
+    public float speed = 3.5f;
+    public float rotaionSpeed = 350f;
 
     private float horizontal;
     public GameObject explosion;

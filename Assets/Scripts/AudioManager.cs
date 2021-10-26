@@ -10,8 +10,10 @@ public class AudioManager : Singleton<AudioManager>
     
     private AudioSource musicSource;
     private AudioSource sfxSource;
-    private void Awake()
+    
+    protected override void Awake()
     {
+        base.Awake();
         musicSource = this.gameObject.AddComponent<AudioSource>();
         sfxSource = this.gameObject.AddComponent<AudioSource>();
         musicSource.loop = true;

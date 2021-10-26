@@ -245,8 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0fd097c9f1a53646b80c2678a5ec8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  rotaionSpeed: 200
+  speed: 3.5
+  rotaionSpeed: 350
   explosion: {fileID: 1483406426061049676, guid: 2f151a8f0ca3e0746988d0944e73f2b4, type: 3}
   sfxExplosion: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
   MainCamera: {fileID: 0}
@@ -264,3 +264,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBullet: {fileID: 2906449924862371421, guid: 370141dc1f4874245bb441df7affe3a7, type: 3}
   bulletSpawn: {fileID: 236635837}
+  sfxFire: {fileID: 8300000, guid: d5b91e836cc745846a8c3cc89291320a, type: 3}

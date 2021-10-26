@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance._score += (pointIncreasePerSecond * Time.deltaTime);
         //print(_score.ToString());
-        scoreTxt.text = $"Score: {(int) GameManager.Instance._score}";
+        scoreTxt.text = $"Score: {((int) GameManager.Instance._score).ToString()}";
         
         if (Input.GetKeyDown(KeyCode.Escape))
         {

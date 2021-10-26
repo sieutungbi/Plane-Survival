@@ -19,23 +19,14 @@ public class GameManager : Singleton<GameManager>
         AudioManager.Instance.PlayMusic(gameMusic);
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
-    private void OnDisable()
-    {
-        
-    }
-
     public void ButtonSFX()
     {
         AudioManager.Instance.PlaySFX(buttonSFX); 
     }
 
-    public void DelayRestart()
+    private IEnumerator DelayRestart(float delay)
     {
+        yield return new WaitForSeconds(1.5f);
         _score = 0;
         SceneManager.LoadScene(0);
     }
@@ -48,7 +39,7 @@ public class GameManager : Singleton<GameManager>
             PlayerPrefs.SetInt("HighScore", (int)_score);
             PlayerPrefs.Save();
         }
-        else if (currentHS != 0)
+        else
         {
             if (currentHS >= _score)
             {
@@ -56,8 +47,8 @@ public class GameManager : Singleton<GameManager>
                 PlayerPrefs.Save();
             }
         }
-        
+
         fireEnable = false;
-        Invoke(nameof(DelayRestart), delay);
+        StartCoroutine(DelayRestart(delay));
     }
 }

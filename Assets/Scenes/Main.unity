@@ -825,11 +825,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 60
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1035,7 +1035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -60, y: 60}
+  m_AnchoredPosition: {x: -100, y: 100}
   m_SizeDelta: {x: 257, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1751371012
@@ -1292,10 +1292,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8143773851517726254, guid: 4c46191437df3cd4faef5dd82d827304, type: 3}
-      propertyPath: sfxFire
-      value: 
-      objectReference: {fileID: 8300000, guid: d5b91e836cc745846a8c3cc89291320a, type: 3}
     - target: {fileID: 8143773851639706114, guid: 4c46191437df3cd4faef5dd82d827304, type: 3}
       propertyPath: MainCamera
       value: 
