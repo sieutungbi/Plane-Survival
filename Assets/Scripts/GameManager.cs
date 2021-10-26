@@ -36,6 +36,7 @@ public class GameManager : Singleton<GameManager>
 
     public void DelayRestart()
     {
+        _score = 0;
         SceneManager.LoadScene(0);
     }
 
@@ -55,7 +56,7 @@ public class GameManager : Singleton<GameManager>
                 PlayerPrefs.Save();
             }
         }
-        //Time.timeScale = 0;
+        
         fireEnable = false;
         Invoke(nameof(DelayRestart), delay);
     }

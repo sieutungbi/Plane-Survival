@@ -9,10 +9,11 @@ public class MineSpawner : MonoBehaviour
     public float minX = -9.5f, maxX = 9.5f;
     public float spawnInterval = 3.5f;
     public AudioClip sfxSpawn;
-    
+    private ObjectPool _objectPool;
     // Start is called before the first frame update
     void Start()
     {
+        _objectPool = FindObjectOfType<ObjectPool>();
         Invoke(nameof(StartSpawner), 1f);
     }
 
@@ -32,8 +33,10 @@ public class MineSpawner : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             temp.x = Random.Range(minX, maxX);
-            Instantiate(minePrefab, temp, Quaternion.identity);
-            
+            //Instantiate(minePrefab, temp, Quaternion.identity);
+            GameObject mine = _objectPool.GetObject(minePrefab);
+            mine.transform.position = temp;
+            mine.transform.rotation = Quaternion.identity;
             yield return null;
         }
        

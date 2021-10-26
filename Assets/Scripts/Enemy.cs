@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D target)
     {
-        if (target.CompareTag("Mine"))
+        if (target.CompareTag("Mine") || target.CompareTag("Bullet"))
         {
             enemySpawner.StartSpawning();
             Instantiate(explosion, transform.position, Quaternion.identity);

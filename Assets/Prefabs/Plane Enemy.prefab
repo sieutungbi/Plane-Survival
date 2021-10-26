@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3643487650278888194}
   - component: {fileID: 3643487650278888193}
   - component: {fileID: 3643487650278888195}
+  - component: {fileID: -7772777537796507965}
   m_Layer: 0
   m_Name: Plane Enemy
   m_TagString: Enemy
@@ -273,3 +274,16 @@ MonoBehaviour:
   rotationSpeed: 200
   enemySpawner: {fileID: 0}
   explosion: {fileID: 1483406426061049676, guid: 2f151a8f0ca3e0746988d0944e73f2b4, type: 3}
+  sfxExplosion: {fileID: 0}
+--- !u!114 &-7772777537796507965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643487650278888198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b55f236e102e241b1bfcba67ff8263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

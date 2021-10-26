@@ -26,11 +26,17 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlaySFX(AudioClip sfxClip)
     {
-        sfxSource.PlayOneShot(sfxClip);
+        if (sfxClip)
+        {
+            sfxSource.PlayOneShot(sfxClip);
+        }
     }
     
     public void PlaySFX(AudioClip sfxClip, float volume)
     {
-        sfxSource.PlayOneShot(sfxClip, volume);
+        if (sfxClip)
+        {
+            sfxSource.PlayOneShot(sfxClip, volume);
+        }
     }
 }

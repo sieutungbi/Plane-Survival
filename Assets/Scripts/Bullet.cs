@@ -8,10 +8,10 @@ public class Bullet : MonoBehaviour
     public GameObject explosion;
     public AudioClip sfxExplosion;
     
+    
     // When bullet goes out of the screen
     void OnBecameInvisible() {  
-         //Destroy the bullet
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D target)

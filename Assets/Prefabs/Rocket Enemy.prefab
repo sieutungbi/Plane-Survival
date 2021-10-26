@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1873198383748688779}
   - component: {fileID: 1873198383748688788}
   - component: {fileID: 1873198383748688778}
+  - component: {fileID: 1715522490813805296}
   m_Layer: 0
   m_Name: Rocket Enemy
   m_TagString: Enemy
@@ -201,3 +202,16 @@ MonoBehaviour:
   rotationSpeed: 200
   enemySpawner: {fileID: 0}
   explosion: {fileID: 1483406426061049676, guid: 2f151a8f0ca3e0746988d0944e73f2b4, type: 3}
+  sfxExplosion: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+--- !u!114 &1715522490813805296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873198383748688791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b55f236e102e241b1bfcba67ff8263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -24,6 +24,6 @@ public class Mine : MonoBehaviour
     }
     
     void OnBecameInvisible() {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
